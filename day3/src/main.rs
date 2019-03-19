@@ -1,5 +1,3 @@
-extern crate regex;
-
 use std::fs;
 use regex::{Regex, Captures};
 
@@ -40,6 +38,8 @@ fn part2(input: &str, re: &Regex, state: &mut[[i32;1000];1000]) -> i32 {
 
         for i in x..(x+width) {
             for j in y..(y+height) {
+                // Use the already mutated state from part 1 to see if
+                // all squares are 100% filled with id
                 if state[i][j] != id {
                     clean = false;
                 }
